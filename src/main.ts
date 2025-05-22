@@ -29,6 +29,18 @@ switch (typeof datoSconosciuto) {
     console.log(datoSconosciuto ? "Sì" : "No");
     break;
 
+    case "object":
+      if (Array.isArray(datoSconosciuto)) {
+        console.log("È un array:", datoSconosciuto);
+      } else if (datoSconosciuto instanceof Promise) {
+        console.log("È una Promise:", datoSconosciuto);
+      } else if (datoSconosciuto === null) {
+        console.log("È null");
+      } else {
+        console.log("Oggetto generico");
+      }
+      break;
+
   default:
     console.log("Tipo non supportato");
     break;
